@@ -1,3 +1,5 @@
+package Week_1;
+package Week_1;
 // The is a leetcode question
 import java.util.*;
 

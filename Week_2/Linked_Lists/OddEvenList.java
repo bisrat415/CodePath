@@ -1,3 +1,4 @@
+package Week_2.Linked_Lists;
 // The is a leetcode question
 
 /**
@@ -15,7 +16,7 @@ public class OddEvenList {
 
     }
 
-    public ListNode oddEvenList(ListNode head) {
+    public static ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null || head.next.next == null) {
             return head;
         }
