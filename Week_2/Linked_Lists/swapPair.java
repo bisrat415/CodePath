@@ -10,7 +10,7 @@
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-public class swapPair {
+public class SwapPair {
     public static void main(String[] args) {
         
     }
