@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.PriorityQueue;
-
+// This is a solution for Q.692(Top K Frequent Words) 
+// We use a map to store information about the frequency of each string in the array and then use a heap to retrieve the k most frequent strings
+import java.util.*;
 public class TopKFrequentWords {
     public static void main(String[] args) {
         String[] words = {"i","love","leetcode","i","love","coding"};
@@ -16,11 +13,12 @@ public class TopKFrequentWords {
         for (String word : words) {
             map.put(word, map.getOrDefault(word, 0) + 1);
         }
+        // Create a comparator that compares the values in the map
         Comparator<String> comp = (a, b) -> {
             if (map.get(a) == map.get(b)) {
                 return a.compareTo(b);
             }
-            return Integer.compare(map.get(b), map.get(a));
+            return Integer.compare(map.get(b), map.get(a)); // putting b as the first argument and b as the second makes sure that the heap we create through this comparator gives high priority for keys with higher values 
         };
         PriorityQueue<String> heap = new PriorityQueue<>(comp);
         for (String key : map.keySet()) {
