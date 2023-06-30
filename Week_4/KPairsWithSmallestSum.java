@@ -15,6 +15,25 @@ public class KPairsWithSmallestSum {
 
     }
 
+    // Brute forced solution - Time Limit Exceeds
+    public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+        PriorityQueue<List<Integer>> minHeap = new PriorityQueue<>((a, b) -> (a.get(0) + a.get(1)) - (b.get(0) + b.get(1)));
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                minHeap.add(Arrays.asList(nums1[i], nums2[j]));
+            }
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        while (k > 0 && !minHeap.isEmpty()) {
+            result.add(minHeap.remove());
+            k--;
+        }
+        return result; 
+        // Let n be the length of nums1 and m be the length of nums2
+        // Time Complexity: O(n*m*log(n*m)) because of the double for loop and adding to the heap
+        // Space Complexity: O(n*m) due to the elements from nums1 and nums2 added to the minHeap.
+    }
+
     // Optimal Solution
     // For detailed explanation of the algorithm visit this link: https://leetcode.com/problems/find-k-pairs-with-smallest-sums/editorial/
     public static List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
