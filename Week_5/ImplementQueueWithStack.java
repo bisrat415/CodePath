@@ -1,3 +1,5 @@
+
+// This is a solution for Q.232(Implement Queue using Stacks)
 import java.util.*;
 public class ImplementQueueWithStack {
     public static void main(String[] args) {
@@ -35,6 +37,7 @@ class MyQueue {
         if (!queue.isEmpty()) {
             return queue.pop();
         }
+        // This block is visited once in a while hence leading to the amortized analysis for time complexity
         while (!normal.isEmpty()) {
             queue.push(normal.pop());
         }
